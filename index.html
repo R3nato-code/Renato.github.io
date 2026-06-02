@@ -647,7 +647,7 @@
 <!-- ===================== CERTIFICADOS ===================== -->
 <section id="habilidades" class="secao-pagina">
   <div class="container" style="max-width:1200px;">
-
+      <span class="rotulo-secao">// 02 — CERTIFICADOS</span>
     <div class="entrada-suave" style="margin-bottom:3.5rem;">
       <h2 class="titulo-secao" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-top:0.5rem;">Minhas Certificações</h2>
     </div>
@@ -669,7 +669,7 @@
           <div class="rodape-cartao-certificado">
             <div>
               <h3 class="titulo-certificado">HTML5 e CSS3</h3>
-              <p class="instituicao-certificado">Alura · 2026 - Conclusão em 19 de maio de 2026</p>
+              <p class="instituicao-certificado">Alura - Conclusão em 19 de maio de 2026</p>
             </div>
           </div>
         </div>
@@ -687,7 +687,7 @@
           </div>
           <div class="rodape-cartao-certificado">
             <div>
-              <h3 class="titulo-certificado">Certificado 2</h3>
+              <h3 class="titulo-certificado">Git e GitHub</h3>
               <p class="instituicao-certificado">Alura - Conclusão em 10 de dezembro de 2025</p>
             </div>
           </div>
@@ -706,8 +706,8 @@
           </div>
           <div class="rodape-cartao-certificado">
             <div>
-              <h3 class="titulo-certificado">JavaScript/h3>
-              <p class="instituicao-certificado">Nome da Instituição · 2024</p>
+              <h3 class="titulo-certificado">Lógica de programação JavaScript</h3>
+              <p class="instituicao-certificado">Alura - Conclusão em 19 de novembro de 2025</p>
             </div>
           </div>
         </div>
@@ -726,8 +726,8 @@
           </div>
           <div class="rodape-cartao-certificado">
             <div>
-              <h3 class="titulo-certificado">Certificado 2</h3>
-              <p class="instituicao-certificado">Nome da Instituição · 2024</p>
+              <h3 class="titulo-certificado">JavaScript</h3>
+              <p class="instituicao-certificado">Alura - Conclusão em 13 de novembro de 2024</p>
             </div>
           </div>
         </div>
@@ -844,66 +844,163 @@
     </div>
   </div>
 </section>
+<style>
+  /* Cards de informação de contato */
+  .cartao-info-contato {
+    background: var(--cartao-escuro);
+    border: 1px solid var(--borda-escura);
+    border-radius: 6px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+  .cartao-info-contato::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-ciano), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .cartao-info-contato:hover::before { opacity: 1; }
+  .cartao-info-contato:hover {
+    border-color: rgba(0,245,255,0.25);
+    transform: translateY(-3px);
+  }
+ 
+  .icone-info-contato {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+ 
+  .rotulo-info-contato {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: #4a6a80;
+    margin-bottom: 0.4rem;
+  }
+ 
+  .valor-info-contato {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #c8d8e8;
+  }
+ 
+  .valor-link {
+    color: var(--neon-ciano) !important;
+    text-decoration: none;
+    transition: text-shadow 0.2s;
+  }
+  .valor-link:hover {
+    text-shadow: 0 0 10px rgba(0,245,255,0.5);
+  }
+</style>
 
 <div class="linha-neon" style="position:relative;z-index:1;"></div>
 
 <!-- ===================== CONTATO ===================== -->
 <section id="contato" class="secao-pagina">
-  <div class="container" style="max-width:700px;">
-
+  <div class="container" style="max-width:900px;">
+ 
     <div class="entrada-suave has-text-centered" style="margin-bottom:3rem;">
       <span class="rotulo-secao">// 04 — CONTATO</span>
-      <h2 class="titulo-secao" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-top:0.5rem;">Vamos conversar?</h2>
-      <p style="color:#6a8fa8;font-size:1rem;margin-top:1rem;line-height:1.7;">Estou aberto a colaborações, projetos acadêmicos e oportunidades. Deixe sua mensagem!</p>
+      <h2 class="titulo-secao" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-top:0.5rem;">Minhas Informações</h2>
+      <p style="color:#6a8fa8;font-size:1rem;margin-top:1rem;line-height:1.7;">Fique à vontade para entrar em contato por qualquer canal abaixo.</p>
     </div>
-
-    <div class="cartao-escuro entrada-suave" style="padding:2.5rem;border-color:rgba(0,245,255,0.12);">
-      <form id="formulario-contato" onsubmit="enviarFormulario(event)">
-
-        <!-- Bulma: field columns -->
-        <div class="columns is-variable is-3">
-          <div class="column">
-            <div class="field">
-              <label class="label" style="font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;color:#4a6a80;">NOME</label>
-              <div class="control">
-                <input class="input campo-escuro" type="text" placeholder="Seu nome" required />
-              </div>
+ 
+    <!-- Grid de cards de informação — Bulma columns -->
+    <div class="columns is-multiline is-variable is-4 entrada-suave">
+ 
+      <!-- Card: Nome -->
+      <div class="column is-half">
+        <div class="cartao-info-contato">
+          <div class="icone-info-contato" style="color:var(--neon-ciano);">◈</div>
+          <div>
+            <div class="rotulo-info-contato">NOME COMPLETO</div>
+            <div class="valor-info-contato">Renato da Silva Hipólito Mascarenhas</div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Card: Email -->
+      <div class="column is-half">
+        <div class="cartao-info-contato">
+          <div class="icone-info-contato" style="color:var(--neon-ciano);">◈</div>
+          <div>
+            <div class="rotulo-info-contato">EMAIL</div>
+            <a href="mailto:seuemail@email.com" class="valor-info-contato valor-link">mascarenhasr02@gmail.com</a>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Card: GitHub -->
+      <div class="column is-half">
+        <div class="cartao-info-contato">
+          <div class="icone-info-contato" style="color:var(--neon-roxo);">◈</div>
+          <div>
+            <div class="rotulo-info-contato">GITHUB</div>
+            <a href="https://github.com/R3nato-code/Perfil" target="_blank" class="valor-info-contato valor-link">github.com/Renato</a>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Card: LinkedIn -->
+      <div class="column is-half">
+        <div class="cartao-info-contato">
+          <div class="icone-info-contato" style="color:var(--neon-roxo);">◈</div>
+          <div>
+            <div class="rotulo-info-contato">LINKEDIN</div>
+            <a href="https://www.linkedin.com/feed/" target="_blank" class="valor-info-contato valor-link">https://www.linkedin.com/in/renato</a>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Card: Localização -->
+      <div class="column is-half">
+        <div class="cartao-info-contato">
+          <div class="icone-info-contato" style="color:var(--neon-verde);">◈</div>
+          <div>
+            <div class="rotulo-info-contato">LOCALIZAÇÃO</div>
+            <div class="valor-info-contato">Ponta Grossa, PR — Brasil</div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Card: Disponibilidade -->
+      <div class="column is-half">
+        <div class="cartao-info-contato">
+          <div class="icone-info-contato" style="color:var(--neon-verde);">◈</div>
+          <div>
+            <div class="rotulo-info-contato">DISPONIBILIDADE</div>
+            <div class="valor-info-contato" style="display:flex;align-items:center;gap:8px;">
+              <span class="ponto-status" style="width:7px;height:7px;flex-shrink:0;"></span>
+              Aberto a oportunidades
             </div>
           </div>
-          <div class="column">
-            <div class="field">
-              <label class="label" style="font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;color:#4a6a80;">EMAIL</label>
-              <div class="control">
-                <input class="input campo-escuro" type="email" placeholder="seu@email.com" required />
-              </div>
-            </div>
-          </div>
         </div>
-
-        <div class="field">
-          <label class="label" style="font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;color:#4a6a80;">ASSUNTO</label>
-          <div class="control">
-            <input class="input campo-escuro" type="text" placeholder="Sobre o que quer conversar?" />
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label" style="font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;color:#4a6a80;">MENSAGEM</label>
-          <div class="control">
-            <textarea class="textarea campo-escuro" rows="5" placeholder="Escreva sua mensagem..." style="resize:vertical;" required></textarea>
-          </div>
-        </div>
-
-        <div class="field is-flex is-justify-content-flex-end" style="margin-top:1.5rem;">
-          <button type="submit" class="button botao-neon"><span>ENVIAR MENSAGEM →</span></button>
-        </div>
-
-        <div id="mensagem-formulario" style="display:none;margin-top:1rem;font-family:'Share Tech Mono',monospace;font-size:0.8rem;color:var(--neon-verde);text-align:center;letter-spacing:0.1em;">
-          ✓ MENSAGEM ENVIADA COM SUCESSO!
-        </div>
-      </form>
+      </div>
+ 
     </div>
-
+ 
+    <!-- Card destaque: mensagem final -->
+    <div class="entrada-suave" style="margin-top:2rem;">
+      <div class="cartao-escuro" style="padding:2rem;text-align:center;border-color:rgba(0,245,255,0.15);">
+        <p style="font-family:'Share Tech Mono',monospace;font-size:0.8rem;color:#4a6a80;letter-spacing:0.1em;margin-bottom:0.75rem;">// MENSAGEM</p>
+        <p style="font-size:1.05rem;color:#9ab8cc;line-height:1.8;max-width:520px;margin:0 auto;">
+          Estou em busca de aprender, colaborar e crescer. Se você tem um projeto, oportunidade ou só quer trocar ideia sobre tecnologia — <strong style="color:var(--neon-ciano);">entre em contato!</strong>
+        </p>
+      </div>
+    </div>
+ 
   </div>
 </section>
 
